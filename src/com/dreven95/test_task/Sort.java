@@ -7,14 +7,17 @@ public class Sort {
     static ArrayList<String> sortFromTheSmallerNumberToLarger(String[] str) {
         ArrayList listOfStrings = new ArrayList<String>();
         Collections.addAll(listOfStrings, str);
+        for (int i = 0; i <= listOfStrings.size(); i++) {
+            if(!Helper.isNumeric(listOfStrings.get(i).toString())) {
+                listOfStrings.remove(i);
+                if (i == listOfStrings.size()) {
+                    break;
+                }
+                --i;
+            }
+        }
         for (int i = 0; i < listOfStrings.size(); i++) {
             for (int j = i + 1; j < listOfStrings.size(); j++) {
-                if(!Helper.isNumeric(listOfStrings.get(i).toString())) {
-                    listOfStrings.remove(i);
-                }
-                if(!Helper.isNumeric(listOfStrings.get(j).toString())) {
-                    listOfStrings.remove(j);
-                }
                 if (Integer.parseInt(listOfStrings.get(i).toString()) > Integer.parseInt(listOfStrings.get(j).toString())) {
                     Collections.swap(listOfStrings, i, j);
                 }
@@ -26,14 +29,17 @@ public class Sort {
     static ArrayList<String> sortFromTheLargerNumberToSmaller(String[] str) {
         ArrayList listOfStrings = new ArrayList<String>();
         Collections.addAll(listOfStrings, str);
+        for (int i = 0; i <= listOfStrings.size(); i++) {
+            if(!Helper.isNumeric(listOfStrings.get(i).toString())) {
+                listOfStrings.remove(i);
+                if (i == listOfStrings.size()) {
+                    break;
+                }
+                --i;
+            }
+        }
         for (int i = 0; i < listOfStrings.size(); i++) {
             for (int j = i + 1; j < listOfStrings.size(); j++) {
-                if(!Helper.isNumeric(listOfStrings.get(i).toString())) {
-                    listOfStrings.remove(i);
-                }
-                if(!Helper.isNumeric(listOfStrings.get(j).toString())) {
-                    listOfStrings.remove(j);
-                }
                 if (Integer.parseInt(listOfStrings.get(i).toString()) < Integer.parseInt(listOfStrings.get(j).toString())) {
                     Collections.swap(listOfStrings, i, j);
                 }
